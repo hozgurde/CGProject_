@@ -65,7 +65,7 @@ int main() {
 	//glm::mat4 projection = 
 	glm::mat4 projection = glm::perspective(90.0f, (GLfloat)mainWindow.GetBufferWidth() / (GLfloat)mainWindow.GetBufferHeight(), 0.1f, 1000.0f);
 
-	Points points(5);
+	Points points(50);
 
 	//Create ImGUI components
 	ImGui::CreateContext();

@@ -13,6 +13,7 @@ public:
 	void RenderPoints();
 	void ClearPoints();
 	GLfloat* GetPoints();
+	
 
 private:
 	GLuint VAO, VBO;
