@@ -43,7 +43,6 @@ void Points::CreateRandomPoints(int noOfPoints)
 				p =  (rand()) / ((float)(RAND_MAX / 2)) - 1.0;
 				points[i] = p;
 			}
-			printf("%f\n", points[i]);
 		}
 
 

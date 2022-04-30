@@ -31,6 +31,9 @@ using namespace std;
 //window dimensions
 const GLint WIDTH = 800, HEIGHT = 800;
 
+const int PLANE_SWEEP_TRIANGULATION = 2;
+const int RANDOMIZED_INCREMENTAL_TRIANGULATION = 1;
+
 Window mainWindow;
 vector<Shader*> shaderList;
 
@@ -80,7 +83,8 @@ int main() {
 	//glm::mat4 projection = 
 	glm::mat4 projection = glm::perspective(90.0f, (GLfloat)mainWindow.GetBufferWidth() / (GLfloat)mainWindow.GetBufferHeight(), 0.1f, 1000.0f);
 
-	Points points(50);
+	int numberOfPoints = 10;
+	Points points(numberOfPoints);
 
 	//Create ImGUI components
 	ImGui::CreateContext();
@@ -88,7 +92,7 @@ int main() {
 	ImGui_ImplOpenGL3_Init("#version 150");
 	ImGui::StyleColorsDark();
 
-	glm::vec3 translate = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 translate = glm::vec3(0.0f, 0.0f, -1.0f);
 	float rot = 0.0f;
 	float scale = 1.0f;
 
@@ -97,6 +101,12 @@ int main() {
 	double ypos = 0;
 	double prevscroll = scroll;
 
+	cout << translate.x << " " << translate.y << endl;
+
+
+	//triangulation variables
+	
+	int curTriangulation = 0;
 	// Loop until window closed
 	while (!mainWindow.GetShouldClose()) {
 		//Get and handle user input events
@@ -117,17 +127,21 @@ int main() {
 
 		glm::mat4 model(1.0f);
 
+		//Triangulation States
 
 
 		//Handle Mouse Inputs
 		int leftstate = glfwGetMouseButton(mainWindow.GetGLFWwindow(), GLFW_MOUSE_BUTTON_LEFT);
 		int rightstate = glfwGetMouseButton(mainWindow.GetGLFWwindow(), GLFW_MOUSE_BUTTON_RIGHT);
 
+		//Apply Transformations
 		if (leftstate == GLFW_PRESS) {
 			double curxpos;
 			double curypos;
 			glfwGetCursorPos(mainWindow.GetGLFWwindow(), &curxpos, &curypos);
-			translate = glm::vec3(translate.x + (curxpos - xpos) / (WIDTH / 2), translate.y - (curypos - ypos) / (HEIGHT / 2), translate.x);
+			translate.x += (curxpos - xpos) / (WIDTH / 2);
+			translate.y -= (curypos - ypos) / (HEIGHT / 2);
+			
 		}
 		if (rightstate == GLFW_PRESS) {
 			double curxpos;
@@ -135,7 +149,6 @@ int main() {
 			glfwGetCursorPos(mainWindow.GetGLFWwindow(), &curxpos, &curypos);
 			double prevangle = atan2(yToLocalPosition(ypos), xToLocalPosition(xpos));
 			double curangle = atan2(yToLocalPosition(curypos), xToLocalPosition(curxpos));
-			cout << "prevangle: " << curxpos << " curangle: " << curypos << endl;
 			rot += (curangle - prevangle);
 		}
 		if ((scroll - prevscroll) > 0) {
@@ -153,20 +166,62 @@ int main() {
 		model = glm::scale(model, glm::vec3(scale, scale, 1.0f));
 	
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-
-		// Rendering
-		points.RenderPoints();
-
-		glUseProgram(0);
+		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 
 		{//Temp code
 
-			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+			ImGui::Begin("Delaunay Triangulation Interface");      
+			ImGui::Text("Number Of Points");
+			ImGui::InputInt(" ", &numberOfPoints);
+			if (numberOfPoints != points.GetPointsSize()) {
+				points.CreateRandomPoints(numberOfPoints);
+			}
+			if (ImGui::Button("Start Randomized Incremental Triangulation")) {
+				//Reset Previous Triangulation
 
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+				//Generate New Points
+
+				//Initialize Start Triangulation
+				curTriangulation = RANDOMIZED_INCREMENTAL_TRIANGULATION;
+			}
+			if (ImGui::Button("Start Plane Sweep Triangulation")) {
+				//Reset Previous Triangulation
+
+				//Generate New Points
+
+				//Initialize Start Triangulation
+				curTriangulation = PLANE_SWEEP_TRIANGULATION;
+			}
+			if (curTriangulation == RANDOMIZED_INCREMENTAL_TRIANGULATION) {
+				if (ImGui::Button("Advance")) {
+					//Advance in Triangulation
+				}
+				if (ImGui::Button("Finish")) {
+					//Finish Triangulation
+				}
+			}
+			else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
+				if (ImGui::Button("Advance")) {
+					//Advance in Triangulation
+				}
+				if (ImGui::Button("Finish")) {
+					//Finish Triangulation
+				}
+			}
+
 			ImGui::End();
 		}
+
+		// Rendering
+		if (curTriangulation == RANDOMIZED_INCREMENTAL_TRIANGULATION) {
+			//Render Randomized Incremental Data Structure
+		}
+		else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
+			//Render Plane Sweep Data Structure
+		}
+		points.RenderPoints();
+
+		glUseProgram(0);
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

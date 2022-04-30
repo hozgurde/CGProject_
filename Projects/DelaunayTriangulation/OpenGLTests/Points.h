@@ -13,6 +13,8 @@ public:
 	void RenderPoints();
 	void ClearPoints();
 	GLfloat* GetPoints();
+	int GetPointsSize() { return pointsSize; };
+
 	
 
 private:
