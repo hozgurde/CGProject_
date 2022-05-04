@@ -21,6 +21,8 @@
 #include "Shader.h"
 #include "Window.h"
 
+#include "PlaneSweepTriangulation.h"
+
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -83,7 +85,7 @@ int main() {
 	//glm::mat4 projection = 
 	glm::mat4 projection = glm::perspective(90.0f, (GLfloat)mainWindow.GetBufferWidth() / (GLfloat)mainWindow.GetBufferHeight(), 0.1f, 1000.0f);
 
-	int numberOfPoints = 10;
+	int numberOfPoints = 8;
 	Points points(numberOfPoints);
 
 	//Create ImGUI components
@@ -101,12 +103,23 @@ int main() {
 	double ypos = 0;
 	double prevscroll = scroll;
 
-	cout << translate.x << " " << translate.y << endl;
+	//cout << translate.x << " " << translate.y << endl;
 
 
 	//triangulation variables
 	
 	int curTriangulation = 0;
+
+	points.ChangePoint(0, -0.5f, -0.5f);
+	points.ChangePoint(1, 0.5f, -0.5f);
+	points.ChangePoint(2, 0.0f, 0.0f);
+	points.ChangePoint(3, -0.5f, 0.5f);
+	points.ChangePoint(4, 0.5f, 0.5f);
+	points.ChangePoint(6, -0.3f, 0.8f);
+	points.ChangePoint(5, 0.3f, 0.8f);
+	points.ChangePoint(7, -0.9f, 0.9f);
+	PlaneSweepTriangulation triangulation(&points);
+
 	// Loop until window closed
 	while (!mainWindow.GetShouldClose()) {
 		//Get and handle user input events
@@ -169,6 +182,8 @@ int main() {
 		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 
 		{//Temp code
+			
+			
 
 			ImGui::Begin("Delaunay Triangulation Interface");      
 			ImGui::Text("Number Of Points");
@@ -219,7 +234,8 @@ int main() {
 		else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
 			//Render Plane Sweep Data Structure
 		}
-		points.RenderPoints();
+
+		triangulation.Render();
 
 		glUseProgram(0);
 
