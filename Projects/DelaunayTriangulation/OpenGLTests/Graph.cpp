@@ -9,7 +9,7 @@ Graph::Graph(int noOfPoints)
 {
 	maxNoOfEdges = 3 * noOfPoints - 6;
 	noOfEdges = 0;
-	edges = new int[2 * noOfEdges];
+	edges = new int[2 * maxNoOfEdges];
 }
 
 Graph::~Graph()

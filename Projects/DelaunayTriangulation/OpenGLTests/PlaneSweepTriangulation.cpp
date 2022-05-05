@@ -38,7 +38,7 @@ PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 	for (int i = 0; i < triples->GetSizeOfTriples(); i++) {
 		drawCircle(circles[3 * i], circles[3 * i + 1], circles[3 * i + 2], 90);
 	}
-
+	
 	//Generate and bind Vertex Array
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
