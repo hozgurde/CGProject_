@@ -80,7 +80,7 @@ int main() {
 	glfwSetInputMode(mainWindow.GetGLFWwindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 	glfwSetScrollCallback(mainWindow.GetGLFWwindow(), scroll_callback);
 
-	GLuint uniformProjection = 0, uniformModel = 0;
+	GLuint uniformProjection = 0, uniformModel = 0, uniformMyColor = 0;
 
 	//glm::mat4 projection = 
 	glm::mat4 projection = glm::perspective(90.0f, (GLfloat)mainWindow.GetBufferWidth() / (GLfloat)mainWindow.GetBufferHeight(), 0.1f, 1000.0f);
@@ -112,7 +112,7 @@ int main() {
 
 	points.ChangePoint(0, -0.5f, -0.5f);
 	points.ChangePoint(1, 0.5f, -0.5f);
-	points.ChangePoint(2, 0.0f, 0.0f);
+	points.ChangePoint(2, -0.2f, 0.0f);
 	points.ChangePoint(3, -0.5f, 0.5f);
 	points.ChangePoint(4, 0.5f, 0.5f);
 	points.ChangePoint(6, -0.3f, 0.8f);
@@ -137,6 +137,7 @@ int main() {
 		shaderList[0]->UseShader();
 		uniformModel = shaderList[0]->GetModelLocation();
 		uniformProjection = shaderList[0]->GetProjectionLocation();
+		uniformMyColor = shaderList[0]->GetMyColorLocation();
 
 		glm::mat4 model(1.0f);
 
@@ -235,7 +236,7 @@ int main() {
 			//Render Plane Sweep Data Structure
 		}
 
-		triangulation.Render();
+		triangulation.Render(uniformMyColor);
 
 		glUseProgram(0);
 
@@ -249,6 +250,6 @@ int main() {
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
-
+	triangulation.~PlaneSweepTriangulation();
 	return 0;
 }

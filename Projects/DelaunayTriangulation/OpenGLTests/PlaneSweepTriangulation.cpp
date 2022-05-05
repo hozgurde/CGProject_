@@ -5,6 +5,7 @@
 PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 {
 	this->points = points;
+	std::cout << "point size in triangulation: " << points->GetPointsSize() << std::endl;
 	graph = new Graph(points->GetPointsSize());
 	boundary = new Boundary(points, graph);
 	triples = new Triples(boundary);
@@ -22,11 +23,20 @@ PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 	boundary->InsertNewOnBoundary(2, 0);
 	boundary->InsertNewOnBoundary(4, 2);
 	boundary->PrintBoundary();
+	std::cout << "size: " << boundary->GetBoundarySize() << std::endl;
 
 	triples->InsertInTriples(2);
 
 	for (int i = 0; i < graph->GetNoOfEdges(); i++) {
 		std::cout << graph->GetEdges()[2 * i] << " " << graph->GetEdges()[2 * i + 1] << std::endl;
+	}
+
+	circlePoints = new float[triples->GetSizeOfTriples() * 90 * 3];
+
+	//Add Circle Points
+	float* circles = triples->GetCircles();
+	for (int i = 0; i < triples->GetSizeOfTriples(); i++) {
+		drawCircle(circles[3 * i], circles[3 * i + 1], circles[3 * i + 2], 90);
 	}
 
 	//Generate and bind Vertex Array
@@ -37,17 +47,19 @@ PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 	glGenBuffers(1, &IBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
 
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(graph->GetEdges()[0]) * 2 * graph->GetMaxNoOfEdges(), graph->GetEdges(), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(graph->GetEdges()[0]) * 3 * graph->GetMaxNoOfEdges(), graph->GetEdges(), GL_STATIC_DRAW);
+	glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, sizeof(graph->GetEdges()[0]) * 2 * graph->GetMaxNoOfEdges(), sizeof(graph->GetEdges()[0]) * boundary->GetBoundarySize(), boundary->GetBoundary());
 
 	//Generate and bind Vetex Buffer
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
 	//Put vertices into buffer
-	glBufferData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, points->GetPoints(), GL_STATIC_DRAW);
-
+	glBufferData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3 + sizeof(points->GetPoints()[0]) * 90 * triples->GetSizeOfTriples() * 3, points->GetPoints(), GL_STATIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, sizeof(points->GetPoints()[0]) * 90 * triples->GetSizeOfTriples() * 3, circlePoints);
 	//
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)(sizeof(graph->GetEdges()[0]) * 2 * graph->GetMaxNoOfEdges()));
 	glEnableVertexAttribArray(0);
 
 	//
@@ -58,10 +70,23 @@ PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 
 }
 
-void PlaneSweepTriangulation::Render()
+PlaneSweepTriangulation::~PlaneSweepTriangulation()
 {
+	delete graph;
+	delete boundary;
+	delete triples;
+	delete[] circlePoints;
+}
+
+void PlaneSweepTriangulation::Render(GLuint uniformMyColor)
+{
+	glUniform1i(uniformMyColor, 0);
 	RenderPoints();
 	RenderGraph();
+	glUniform1i(uniformMyColor, 1);
+	RenderBoundary();
+	glUniform1i(uniformMyColor, 2);
+	RenderTriples();
 }
 
 void PlaneSweepTriangulation::RenderPoints()
@@ -86,230 +111,66 @@ void PlaneSweepTriangulation::RenderGraph()
 	glBindVertexArray(0);
 }
 
-Graph::Graph()
+void PlaneSweepTriangulation::RenderBoundary()
 {
-	Graph(2);
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+
+	glDrawElements(GL_POINTS, boundary->GetBoundarySize(), GL_UNSIGNED_INT, (void*)(sizeof(graph->GetEdges()[0]) * 2 * graph->GetMaxNoOfEdges()));
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
-Graph::Graph(int noOfPoints)
+void PlaneSweepTriangulation::RenderTriples()
 {
-	maxNoOfEdges = 3 * noOfPoints - 6;
-	noOfEdges = 0;
-	edges = new unsigned int[2 * noOfEdges];
-}
-
-Graph::~Graph()
-{
-	delete[] edges;
-}
-
-void Graph::Add_Edge(unsigned int p, unsigned int q)
-{
-	edges[2 * noOfEdges] = p;
-	edges[2 * noOfEdges + 1] = q;
-	noOfEdges++;
-}
-
-Boundary::Boundary()
-{
-	
-}
-
-Boundary::Boundary(Points* points, Graph* graph)
-{
-	boundary = new int[3 * points->GetPointsSize() - 6];
-	boundarySize = 0;
-	this->points = points;
-	this->graph = graph;
-}
-
-int Boundary::Before(int q)
-{
-	int start = 0;
-	int end = boundarySize - 1;
-	while (start != end) {
-		int mid = (start + end) / 2;
-		if (boundary[mid] == q) {
-			if (mid != 0) {
-				return boundary[mid - 1];
-			}
-			else {
-				return -1;
-			}
-		}
-		else if (points->GetPoint(boundary[mid])[0] < points->GetPoint(q)[0]) {
-			start = mid;
-		}
-		else {
-			end = mid;
-		}
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	for (int i = 0; i < triples->GetSizeOfTriples(); i++) {
+		glDrawArrays(GL_LINE_LOOP, points->GetPointsSize() + i * 90, 90);
 	}
-	return boundary[((start + end) / 2) - 1];
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
-int Boundary::After(int q)
+
+
+
+
+
+
+void PlaneSweepTriangulation::drawCircle(float cx, float cy, float r, int num_segments)
 {
-	int start = 0;
-	int end = boundarySize - 1;
-	while (start != end) {
-		int mid = (start + end) / 2;
-		if (boundary[mid] == q) {
-			if (mid != boundarySize - 1) {
-				return boundary[mid + 1];
-			}
-			else {
-				return -1;
-			}
-		}
-		else if (points->GetPoint(boundary[mid])[0] < points->GetPoint(q)[0]) {
-			start = mid;
-		}
-		else {
-			end = mid;
-		}
-	}
-	return boundary[((start + end) / 2) + 1];
-}
+	float theta = 3.1415926 * 2 / float(num_segments);
+	float tangetial_factor = tanf(theta);//calculate the tangential factor 
 
-int Boundary::GetCorrespondingPoint(int q)
-{
-	return boundary[q];
-}
+	float radial_factor = cosf(theta);//calculate the radial factor 
 
-void Boundary::ClosestPointTo(int p, int& q1, int& q2)
-{
-	q1 = 0;
-	q2 = boundarySize - 1;
-	float x = points->GetPoint(p)[0];
+	float x = r;//we start at angle = 0 
 
-	while (q1 + 1 != q2) {
-		int mid = (q1 + q2) / 2;
-		if (points->GetPoint(boundary[mid])[0] < x) {
-			q1 = mid;
-		}
-		else {
-			q2 = mid;
-		}
-	}
-	return;
-}
+	float y = 0;
+	for (int ii = 0; ii < num_segments; ii++)
+	{
+		circlePoints[3 * ii] = x + cx;
+		circlePoints[3 * ii + 1] = y + cy;
+		circlePoints[3 * ii + 2] = 0;
 
-void Boundary::InsertNewOnBoundary(int p, int q)
-{
+		//calculate the tangential vector 
+		//remember, the radial vector is (x, y) 
+		//to get the tangential vector we flip those coordinates and negate one of them 
 
-	boundarySize = boundarySize + 2;
-	for (int i = boundarySize - 1; i > q + 1; i--) {
-		boundary[i] = boundary[i - 2];
-	}
-	boundary[q + 1] = p;
-	graph->Add_Edge(p, q);
-}
+		float tx = -y;
+		float ty = x;
 
-void Boundary::UpdateOnBoundary(int q)
-{
-	graph->Add_Edge(boundary[q-1], boundary[q+1]);
-	boundarySize = boundarySize - 1;
-	for (int i = q; i < boundarySize; i++) {
-		boundary[i] = boundary[i + 1];
+		//add the tangential vector 
+
+		x += tx * tangetial_factor;
+		y += ty * tangetial_factor;
+
+		//correct using the radial factor 
+
+		x *= radial_factor;
+		y *= radial_factor;
 	}
 }
 
-void Boundary::Initialize(int q)
-{
-	boundarySize++;
-	boundary[0] = q;
-}
-
-void Boundary::PrintBoundary()
-{
-	for (int i = 0; i < boundarySize; i++) {
-		std::cout << boundary[i] << std::endl;
-	}
-}
-
-Triples::Triples()
-{
-}
-
-Triples::~Triples()
-{
-	delete[] triples;
-	delete[] tops;
-}
-
-Triples::Triples(Boundary* boundary)
-{
-	this->boundary = boundary;
-	triples = new int[3 * boundary->GetPoints()->GetPointsSize() - 6];
-	tops = new float[3 * boundary->GetPoints()->GetPointsSize() - 6];
-	sizeOfTriples = 0;
-}
-
-float Triples::MinTop()
-{
-	float min = FLT_MAX;
-	for (int i = 0; i < sizeOfTriples; i++) {
-		if (tops[i] < min) {
-			min = tops[i];
-		}
-	}
-
-	return min;
-}
-
-int Triples::GetPointCorrToMinTop()
-{
-	float min = FLT_MAX;
-	int index = -1;
-	for (int i = 0; i < sizeOfTriples; i++) {
-		if (tops[i] < min) {
-			index = i;
-			min = tops[i];
-		}
-	}
-
-	return index;
-}
-
-void Triples::DeleteFromTriples(int q)
-{
-	for (int i = 0; i < sizeOfTriples; i++) {
-		if (triples[i] == q) {
-			for (int j = i; i < sizeOfTriples - 1; j++) {
-				triples[j] = triples[j + 1];
-				tops[j] = tops[j + 1];
-			}
-			sizeOfTriples--;
-		}
-	}
-}
-
-void Triples::InsertInTriples(int q)
-{
-	triples[sizeOfTriples] = q;
-
-	int p1 = boundary->GetCorrespondingPoint(q - 1);
-	int p2 = boundary->GetCorrespondingPoint(q);
-	int p3 = boundary->GetCorrespondingPoint(q + 1);
-	float* point1 = boundary->GetPoints()->GetPoint(p1);
-	float* point2 = boundary->GetPoints()->GetPoint(p2);
-	float* point3 = boundary->GetPoints()->GetPoint(p3);
-
-	float A1x = point1[0] - point2[0];
-	float A1y = point1[1] - point2[1];
-	float A2x = point1[0] - point3[0];
-	float A2y = point1[1] - point3[1];
-
-	float B1 = A1x * A1x + A1y * A1y;
-	float B2 = A2x * A2x + A2y * A2y;
-
-	float yc = (B2 - A2y * B1 / A1x) / (A2y - A2x * A1y / A1x);
-	float xc = B1 / A1x - (A1y * yc / A1x);
-
-	float r = sqrt((point1[0] - xc) * (point1[0] - xc) + (point1[1] - yc) * (point1[1] - yc));
-
-	float top = yc + r;
-
-	tops[q] = top;
-
-}

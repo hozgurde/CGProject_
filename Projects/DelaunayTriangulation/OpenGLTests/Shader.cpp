@@ -4,6 +4,7 @@ Shader::Shader() {
 	shaderID = 0;
 	uniformModel = 0;
 	uniformProjection = 0;
+	uniformMyColor = 0;
 }
 
 Shader::~Shader() {
@@ -16,6 +17,11 @@ GLuint Shader::GetProjectionLocation() {
  
 GLuint Shader::GetModelLocation() {
 	return uniformModel;
+}
+
+GLuint Shader::GetMyColorLocation()
+{
+	return uniformMyColor;
 }
 
 void Shader::CreateFromString(const char* vertexCode, const char* fragmentCode) {
@@ -53,6 +59,7 @@ void Shader::CompileShader(const char* vertexCode, const char* fragmentCode) {
 
 	uniformModel = glGetUniformLocation(shaderID, "model");
 	uniformProjection = glGetUniformLocation(shaderID, "projection");
+	uniformMyColor = glGetUniformLocation(shaderID, "myColor");
 }
 
 void Shader::UseShader() {
