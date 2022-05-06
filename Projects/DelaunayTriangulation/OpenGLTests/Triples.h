@@ -12,6 +12,9 @@ public:
 	void InsertInTriples(int q);
 	int GetSizeOfTriples() { return sizeOfTriples; };
 	float* GetCircles() { return circles; };
+	void InsertNewOnBoundary(int q);
+	void UpdateOnBoundary(int q);
+	void PrintTriples();
 private:
 	Boundary* boundary;
 	int* triples;

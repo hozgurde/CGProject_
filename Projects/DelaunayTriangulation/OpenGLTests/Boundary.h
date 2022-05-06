@@ -10,7 +10,7 @@ public:
 	int Before(int q);
 	int After(int q);
 	int GetCorrespondingPoint(int q);
-	void ClosestPointTo(int p, int& q1, int& q2);
+	int ClosestPointTo(int p);
 	void InsertNewOnBoundary(int p, int q);
 	void UpdateOnBoundary(int q);
 	void Initialize(int q);
@@ -18,6 +18,7 @@ public:
 	void PrintBoundary();
 	int* GetBoundary() { return boundary; };
 	int GetBoundarySize() { return boundarySize; };
+	float CheckMaxYDisk(int p1, int p2, float yp);
 private:
 	int* boundary;
 	int boundarySize;

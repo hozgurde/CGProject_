@@ -16,11 +16,15 @@ public:
 	GLfloat* GetPoint(int index);
 	GLfloat* GetPoints();
 	int GetPointsSize() { return pointsSize; };
+	void Sort();
 
 	
 
 private:
-	GLuint VAO, VBO;
+	void QuickSort(int start, int end);
+	int Partition(int start, int end);
+	void SwapPoints(int i, int j);
+
 	GLsizei pointsSize;
 	GLfloat* points;
 };

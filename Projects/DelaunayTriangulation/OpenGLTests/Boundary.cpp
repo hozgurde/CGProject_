@@ -13,7 +13,7 @@ Boundary::~Boundary()
 
 Boundary::Boundary(Points* points, Graph* graph)
 {
-	std::cout << "Points size in boundary " << points->GetPointsSize() << std::endl;
+	//std::cout << "Points size in boundary " << points->GetPointsSize() << std::endl;
 	boundary = new int[3 * points->GetPointsSize() - 6];
 	boundarySize = 0;
 	this->points = points;
@@ -73,23 +73,38 @@ int Boundary::GetCorrespondingPoint(int q)
 	return boundary[q];
 }
 
-void Boundary::ClosestPointTo(int p, int& q1, int& q2)
+int Boundary::ClosestPointTo(int p)
 {
-	q1 = 0;
-	q2 = boundarySize - 1;
-	float x = points->GetPoint(p)[0];
-
-	while (q1 + 1 != q2) {
-		int mid = (q1 + q2) / 2;
-		if (points->GetPoint(boundary[mid])[0] < x) {
-			q1 = mid;
+	float distance = FLT_MAX;
+	int curPoint = 0;
+	float* pointP = points->GetPoint(p);
+	float x = CheckMaxYDisk(boundarySize - 2, boundarySize - 1, pointP[1]);
+	for (int i = 0; i < boundarySize - 1; i++) {
+		float temp = CheckMaxYDisk(i, i + 1, pointP[1]);
+		if ((x < pointP[0] && temp > pointP[0])) {
+			float* tempPoint = points->GetPoint(boundary[i]);
+			float curDistance = sqrt((tempPoint[0] - pointP[0]) * (tempPoint[0] - pointP[0]) + (tempPoint[1] - pointP[1]) * (tempPoint[1] - pointP[1]));
+			if (curDistance < distance) {
+				distance = curDistance;
+				curPoint = i;
+			}
+		}
+		x = temp;
+	}
+	if (distance == FLT_MAX) {
+		if (x > pointP[0]) {
+			curPoint = 0;
 		}
 		else {
-			q2 = mid;
+			curPoint = boundarySize - 1;
 		}
 	}
-	return;
+
+	return curPoint;
+
 }
+
+
 
 void Boundary::InsertNewOnBoundary(int p, int q)
 {
@@ -99,12 +114,10 @@ void Boundary::InsertNewOnBoundary(int p, int q)
 		boundary[i] = boundary[i - 2];
 	}
 	boundary[q + 1] = p;
-	graph->Add_Edge(p, q);
 }
 
 void Boundary::UpdateOnBoundary(int q)
 {
-	graph->Add_Edge(boundary[q - 1], boundary[q + 1]);
 	boundarySize = boundarySize - 1;
 	for (int i = q; i < boundarySize; i++) {
 		boundary[i] = boundary[i + 1];
@@ -119,7 +132,34 @@ void Boundary::Initialize(int q)
 
 void Boundary::PrintBoundary()
 {
+	std::cout << "-----------Boundary-------------" << std::endl;
 	for (int i = 0; i < boundarySize; i++) {
 		std::cout << boundary[i] << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+}
+
+float Boundary::CheckMaxYDisk(int p1,int p2, float yp)
+{
+	float* point1 = points->GetPoint(boundary[p1]);
+	float* point2 = points->GetPoint(boundary[p2]);
+	float b1 = -2 * point1[0];
+	float c1 = point1[0] * point1[0] + point1[1] * point1[1] - yp * yp;
+	float d1 = 2 * yp - 2 * point1[1];
+	float b2 = (2 * point2[0] - 2 * point1[0]) / (2 * point1[1] - 2 * point2[1]);
+	float c2 = (point1[0] * point1[0] - point2[0] * point2[0] + point1[1] * point1[1] - point2[1] * point2[1]) / (2 * point1[1] - 2 * point2[1]);
+	float b = b1 + b2 * d1;
+	float c = c1 + c2 * d1;
+	float res1 = (-b + sqrt(b * b - 4 * c)) / 2;
+	float res2 = (-b - sqrt(b * b - 4 * c)) / 2;
+
+	//Check Left Turn
+	float D = point1[0] * point2[1] + point2[0] * yp + res1 * point1[1] - point1[1] * point2[0] - point2[1] * res1 - yp * point1[0];
+
+	if (D > 0) {
+		return res1;
+	}
+	else {
+		return res2;
 	}
 }

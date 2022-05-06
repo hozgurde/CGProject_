@@ -41,7 +41,7 @@ int Triples::GetPointCorrToMinTop()
 	int index = -1;
 	for (int i = 0; i < sizeOfTriples; i++) {
 		if (tops[i] < min) {
-			index = i;
+			index = triples[i];
 			min = tops[i];
 		}
 	}
@@ -53,9 +53,12 @@ void Triples::DeleteFromTriples(int q)
 {
 	for (int i = 0; i < sizeOfTriples; i++) {
 		if (triples[i] == q) {
-			for (int j = i; i < sizeOfTriples - 1; j++) {
+			for (int j = i; j < sizeOfTriples - 1; j++) {
 				triples[j] = triples[j + 1];
 				tops[j] = tops[j + 1];
+				circles[3 * j] = circles[3 * (j+ 1)];
+				circles[3 * j + 1] = circles[3 * (j+1) + 1];
+				circles[3 * j + 2] = circles[3 * (j+1) + 2];
 			}
 			sizeOfTriples--;
 		}
@@ -72,9 +75,9 @@ void Triples::InsertInTriples(int q)
 	float* point1 = boundary->GetPoints()->GetPoint(p1);
 	float* point2 = boundary->GetPoints()->GetPoint(p2);
 	float* point3 = boundary->GetPoints()->GetPoint(p3);
-	std::cout << point1[0] << " " << point1[1] << " " << point1[2] << std::endl;
+	/*std::cout << point1[0] << " " << point1[1] << " " << point1[2] << std::endl;
 	std::cout << point2[0] << " " << point2[1] << " " << point2[2] << std::endl;
-	std::cout << point3[0] << " " << point3[1] << " " << point3[2] << std::endl;
+	std::cout << point3[0] << " " << point3[1] << " " << point3[2] << std::endl;*/
 
 	float A12x = point1[0] - point2[0];
 	float A12y = point1[1] - point2[1];
@@ -99,10 +102,37 @@ void Triples::InsertInTriples(int q)
 	circles[3 * sizeOfTriples] = xc;
 	circles[3 * sizeOfTriples + 1] = yc;
 	circles[3 * sizeOfTriples + 2] = r;
-	std::cout << top << " " << xc << " " << yc << " " << r << std::endl;
+	//std::cout << top << " " << xc << " " << yc << " " << r << std::endl;
 
 	sizeOfTriples++;
 
 
 
+}
+
+void Triples::InsertNewOnBoundary(int q)
+{
+	for (int i = 0; i < sizeOfTriples; i++) {
+		if (triples[i] > q) {
+			triples[i] += 2;
+		}
+	}
+}
+
+void Triples::UpdateOnBoundary(int q)
+{
+	for (int i = 0; i < sizeOfTriples; i++) {
+		if (triples[i] > q) {
+			triples[i]--;
+		}
+	}
+}
+
+void Triples::PrintTriples()
+{
+	std::cout << "-----------Triples-------------" << std::endl;
+	for (int i = 0; i < sizeOfTriples; i++) {
+		std::cout << triples[i] << std::endl;
+	}
+	std::cout << "-------------------------------" << std::endl;
 }

@@ -13,16 +13,26 @@ public:
 	void AdvanceTriangulation();
 	void CompleteTriangulation();
 	void Render(GLuint uniformMyColor);
+	void UpdateBuffers();
+	void InitializeBuffers();
+	void PrintTriangulation();
+
 private:
-	void drawCircle(float cx, float cy, float r, int num_segments);
+	void drawCircle(float cx, float cy, float r, int num_segments, int index);
 	void RenderPoints();
 	void RenderGraph();
 	void RenderBoundary();
 	void RenderTriples();
+	void Initialize(int p);
+	void AddTo(int p, int q);
+	void Update(int q);
+	bool CheckLeftTurn(int i, int j, int k);
 	GLuint VAO, VBO, IBO;
 	Points* points;
 	Graph* graph;
 	Boundary* boundary;
 	Triples* triples;
 	float* circlePoints;
+	bool initialized;
+	int curPoint;
 };

@@ -85,7 +85,7 @@ int main() {
 	//glm::mat4 projection = 
 	glm::mat4 projection = glm::perspective(90.0f, (GLfloat)mainWindow.GetBufferWidth() / (GLfloat)mainWindow.GetBufferHeight(), 0.1f, 1000.0f);
 
-	int numberOfPoints = 8;
+	int numberOfPoints = 5;
 	Points points(numberOfPoints);
 
 	//Create ImGUI components
@@ -108,17 +108,9 @@ int main() {
 
 	//triangulation variables
 	
+	//points.Sort();
 	int curTriangulation = 0;
-
-	points.ChangePoint(0, -0.5f, -0.5f);
-	points.ChangePoint(1, 0.5f, -0.5f);
-	points.ChangePoint(2, -0.2f, 0.0f);
-	points.ChangePoint(3, -0.5f, 0.5f);
-	points.ChangePoint(4, 0.5f, 0.5f);
-	points.ChangePoint(6, -0.3f, 0.8f);
-	points.ChangePoint(5, 0.3f, 0.8f);
-	points.ChangePoint(7, -0.9f, 0.9f);
-	PlaneSweepTriangulation triangulation(&points);
+	PlaneSweepTriangulation* planeSweepTriangulation = NULL;
 
 	// Loop until window closed
 	while (!mainWindow.GetShouldClose()) {
@@ -194,23 +186,45 @@ int main() {
 			}
 			if (ImGui::Button("Start Randomized Incremental Triangulation")) {
 				//Reset Previous Triangulation
-
+				
 				//Generate New Points
-
+				
 				//Initialize Start Triangulation
+				
 				curTriangulation = RANDOMIZED_INCREMENTAL_TRIANGULATION;
+				
 			}
 			if (ImGui::Button("Start Plane Sweep Triangulation")) {
 				//Reset Previous Triangulation
-
+				if (planeSweepTriangulation) {
+					delete planeSweepTriangulation;
+				}
+				
 				//Generate New Points
-
+				points.CreateRandomPoints(numberOfPoints);
+				points.Sort();
+				/*
+				points.ChangePoint(0, 0.481292 ,- 0.988708);
+				points.ChangePoint(1, - 0.564304, - 0.203015);
+				points.ChangePoint(2, - 0.735396, 0.0883232);
+				points.ChangePoint(3, - 0.288592, 0.0990661);
+				points.ChangePoint(4, 0.445706, 0.150644);
+				points.ChangePoint(5, 0.115913, 0.259476);
+				points.ChangePoint(6, 0.960752, 0.42599);
+				points.ChangePoint(7, 0.596411, 0.720625);
+				points.ChangePoint(8, - 0.523408, 0.755295);
+				points.ChangePoint(9, - 0.1692, 0.988952);
+				*/
+				
 				//Initialize Start Triangulation
+				planeSweepTriangulation = new PlaneSweepTriangulation(&points);
+				planeSweepTriangulation->InitializeBuffers();
 				curTriangulation = PLANE_SWEEP_TRIANGULATION;
 			}
 			if (curTriangulation == RANDOMIZED_INCREMENTAL_TRIANGULATION) {
 				if (ImGui::Button("Advance")) {
 					//Advance in Triangulation
+					
 				}
 				if (ImGui::Button("Finish")) {
 					//Finish Triangulation
@@ -219,9 +233,16 @@ int main() {
 			else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
 				if (ImGui::Button("Advance")) {
 					//Advance in Triangulation
+					planeSweepTriangulation->AdvanceTriangulation();
+					planeSweepTriangulation->PrintTriangulation();
+					planeSweepTriangulation->UpdateBuffers();
+					
 				}
 				if (ImGui::Button("Finish")) {
 					//Finish Triangulation
+					planeSweepTriangulation->CompleteTriangulation();
+					//planeSweepTriangulation->PrintTriangulation();
+					planeSweepTriangulation->UpdateBuffers();
 				}
 			}
 
@@ -234,9 +255,10 @@ int main() {
 		}
 		else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
 			//Render Plane Sweep Data Structure
+			planeSweepTriangulation->Render(uniformMyColor);
 		}
 
-		triangulation.Render(uniformMyColor);
+		
 
 		glUseProgram(0);
 
@@ -250,6 +272,6 @@ int main() {
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
-	triangulation.~PlaneSweepTriangulation();
+	//triangulation.~PlaneSweepTriangulation();
 	return 0;
 }
