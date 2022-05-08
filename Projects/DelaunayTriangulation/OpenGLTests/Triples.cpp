@@ -91,8 +91,20 @@ void Triples::InsertInTriples(int q)
 	float C12 = A12x * B12x + A12y * B12y;
 	float C13 = A13x * B13x + A13y * B13y;
 
-	float yc = (C13 - A13x * C12 / A12x) / (2 * A13y - 2 * A13x * A12y / A12x);
-	float xc = (C12 / (2 * A12x)) - (A12y * yc / A12x);
+
+	float yc;
+	float xc;
+	if (A12x == 0) {
+		yc = (C12 - A12x * C13 / A13x) / (2 * A12y - 2 * A12x * A13y / A13x);
+		xc = (C13 / (2 * A13x)) - (A13y * yc / A13x);
+	}
+	else {
+		yc = (C13 - A13x * C12 / A12x) / (2 * A13y - 2 * A13x * A12y / A12x);
+		xc = (C12 / (2 * A12x)) - (A12y * yc / A12x);
+	}
+	
+
+	
 
 	float r = sqrt((point1[0] - xc) * (point1[0] - xc) + (point1[1] - yc) * (point1[1] - yc));
 
