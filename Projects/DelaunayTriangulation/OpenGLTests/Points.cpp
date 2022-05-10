@@ -34,7 +34,7 @@ void Points::CreateRandomPoints(int noOfPoints)
 	if (pointsSize != 0) {
 		ClearPoints();
 	}
-	srand(1651875213);
+	srand(1652181606);
 	std::cout << time(NULL) << std::endl;
 	pointsSize = noOfPoints;
 	if (pointsSize > 0) {
@@ -128,6 +128,7 @@ int Points::Partition(int start, int end)
 
 	// pivot (Element to be placed at right position)
 	GLfloat pivot = points[end * 3 + 1];
+	GLfloat pivotx = points[end * 3];
 
 	int i = start; // Index of smaller element and indicates the 
 					// right position of pivot found so far
@@ -137,6 +138,10 @@ int Points::Partition(int start, int end)
 		// If current element is smaller than the pivot
 		if (points[j * 3 + 1] < pivot)
 		{
+			i++;    // increment index of smaller element
+			SwapPoints(i - 1, j);
+		}
+		else if (points[j * 3 + 1] == pivot && points[j * 3] < pivotx) {
 			i++;    // increment index of smaller element
 			SwapPoints(i - 1, j);
 		}
