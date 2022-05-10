@@ -111,7 +111,7 @@ int Boundary::ClosestPointTo(int p)
 			curPoint = minDisk;
 		}
 		else {
-			curPoint = maxDisk;
+			curPoint = maxDisk + 1;
 		}
 	}
 

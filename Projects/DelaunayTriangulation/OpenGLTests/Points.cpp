@@ -34,7 +34,7 @@ void Points::CreateRandomPoints(int noOfPoints)
 	if (pointsSize != 0) {
 		ClearPoints();
 	}
-	srand(1652181606);
+	time(NULL);
 	std::cout << time(NULL) << std::endl;
 	pointsSize = noOfPoints;
 	if (pointsSize > 0) {
