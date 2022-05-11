@@ -21,14 +21,11 @@ void RandomizedIncrementalTriangulation::AdvanceTriangulation() {
 
 void RandomizedIncrementalTriangulation::CompleteTriangulation() {
 
-    void RandomizedIncrementalTriangulation::CompleteTriangulation() {
-
-        for (int i = curr_point_id; i < num_points; ++i) {
-            GLfloat x = coordinates[3 * i];
-            GLfloat y = coordinates[3 * i + 1];
-            Point2Dd p = Point2D<double>(x, y);
-            addPoint(p);
-        }
+    for (int i = curr_point_id; i < num_points; ++i) {
+        GLfloat x = coordinates[3 * i];
+        GLfloat y = coordinates[3 * i + 1];
+        Point2Dd p = Point2D<double>(x, y);
+        addPoint(p);
     }
 }
 
