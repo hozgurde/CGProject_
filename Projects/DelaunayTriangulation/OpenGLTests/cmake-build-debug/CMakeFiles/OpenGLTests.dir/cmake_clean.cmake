@@ -1,5 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OpenGLTests.dir/Boundary.cpp.obj"
+  "CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj"
+  "CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj"
+  "CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj"
+  "CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj"
+  "CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj"
   "CMakeFiles/OpenGLTests.dir/Graph.cpp.obj"
   "CMakeFiles/OpenGLTests.dir/Mesh.cpp.obj"
   "CMakeFiles/OpenGLTests.dir/PlaneSweepTriangulation.cpp.obj"

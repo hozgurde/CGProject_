@@ -92,12 +92,12 @@ clean: CMakeFiles/OpenGLTests.dir/clean
 CMakeFiles/OpenGLTests.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target OpenGLTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 "Built target OpenGLTests"
 .PHONY : CMakeFiles/OpenGLTests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OpenGLTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/OpenGLTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/OpenGLTests.dir/rule

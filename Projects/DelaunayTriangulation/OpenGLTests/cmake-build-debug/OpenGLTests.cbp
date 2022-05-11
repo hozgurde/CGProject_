@@ -88,6 +88,36 @@
 		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Boundary.h">
 			<Option target="OpenGLTests"/>
 		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/adjacencies.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/adjacencies.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/dag.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/dag.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/dagnode.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/dagnode.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/point2d.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/point2d.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/triangle.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/DataStructures/triangle.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
 		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Graph.cpp">
 			<Option target="OpenGLTests"/>
 		</Unit>

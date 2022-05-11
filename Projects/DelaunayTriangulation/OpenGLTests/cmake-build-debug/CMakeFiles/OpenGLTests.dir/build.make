@@ -313,6 +313,76 @@ CMakeFiles/OpenGLTests.dir/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLTests.dir/Window.cpp.s"
 	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\Window.cpp -o CMakeFiles\OpenGLTests.dir\Window.cpp.s
 
+CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj: CMakeFiles/OpenGLTests.dir/flags.make
+CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj: CMakeFiles/OpenGLTests.dir/includes_CXX.rsp
+CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj: ../DataStructures/point2d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\OpenGLTests.dir\DataStructures\point2d.cpp.obj -c C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\point2d.cpp
+
+CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.i"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\point2d.cpp > CMakeFiles\OpenGLTests.dir\DataStructures\point2d.cpp.i
+
+CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.s"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\point2d.cpp -o CMakeFiles\OpenGLTests.dir\DataStructures\point2d.cpp.s
+
+CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj: CMakeFiles/OpenGLTests.dir/flags.make
+CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj: CMakeFiles/OpenGLTests.dir/includes_CXX.rsp
+CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj: ../DataStructures/dagnode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\OpenGLTests.dir\DataStructures\dagnode.cpp.obj -c C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\dagnode.cpp
+
+CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.i"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\dagnode.cpp > CMakeFiles\OpenGLTests.dir\DataStructures\dagnode.cpp.i
+
+CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.s"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\dagnode.cpp -o CMakeFiles\OpenGLTests.dir\DataStructures\dagnode.cpp.s
+
+CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj: CMakeFiles/OpenGLTests.dir/flags.make
+CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj: CMakeFiles/OpenGLTests.dir/includes_CXX.rsp
+CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj: ../DataStructures/triangle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\OpenGLTests.dir\DataStructures\triangle.cpp.obj -c C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\triangle.cpp
+
+CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.i"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\triangle.cpp > CMakeFiles\OpenGLTests.dir\DataStructures\triangle.cpp.i
+
+CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.s"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\triangle.cpp -o CMakeFiles\OpenGLTests.dir\DataStructures\triangle.cpp.s
+
+CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj: CMakeFiles/OpenGLTests.dir/flags.make
+CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj: CMakeFiles/OpenGLTests.dir/includes_CXX.rsp
+CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj: ../DataStructures/dag.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\OpenGLTests.dir\DataStructures\dag.cpp.obj -c C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\dag.cpp
+
+CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.i"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\dag.cpp > CMakeFiles\OpenGLTests.dir\DataStructures\dag.cpp.i
+
+CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.s"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\dag.cpp -o CMakeFiles\OpenGLTests.dir\DataStructures\dag.cpp.s
+
+CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj: CMakeFiles/OpenGLTests.dir/flags.make
+CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj: CMakeFiles/OpenGLTests.dir/includes_CXX.rsp
+CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj: ../DataStructures/adjacencies.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\OpenGLTests.dir\DataStructures\adjacencies.cpp.obj -c C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\adjacencies.cpp
+
+CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.i"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\adjacencies.cpp > CMakeFiles\OpenGLTests.dir\DataStructures\adjacencies.cpp.i
+
+CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.s"
+	C:\PROGRA~2\MINGW-~1\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\DataStructures\adjacencies.cpp -o CMakeFiles\OpenGLTests.dir\DataStructures\adjacencies.cpp.s
+
 # Object files for target OpenGLTests
 OpenGLTests_OBJECTS = \
 "CMakeFiles/OpenGLTests.dir/Boundary.cpp.obj" \
@@ -331,7 +401,12 @@ OpenGLTests_OBJECTS = \
 "CMakeFiles/OpenGLTests.dir/RandomizedIncrementalTriangulation.cpp.obj" \
 "CMakeFiles/OpenGLTests.dir/Shader.cpp.obj" \
 "CMakeFiles/OpenGLTests.dir/Triples.cpp.obj" \
-"CMakeFiles/OpenGLTests.dir/Window.cpp.obj"
+"CMakeFiles/OpenGLTests.dir/Window.cpp.obj" \
+"CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj" \
+"CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj" \
+"CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj" \
+"CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj" \
+"CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj"
 
 # External object files for target OpenGLTests
 OpenGLTests_EXTERNAL_OBJECTS =
@@ -353,11 +428,16 @@ OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/RandomizedIncrementalTriangulation.c
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/Shader.cpp.obj
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/Triples.cpp.obj
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/Window.cpp.obj
+OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj
+OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj
+OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj
+OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj
+OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/build.make
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/linklibs.rsp
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/objects1.rsp
 OpenGLTests.exe: CMakeFiles/OpenGLTests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable OpenGLTests.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable OpenGLTests.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\OpenGLTests.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

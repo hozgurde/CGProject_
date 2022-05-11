@@ -1,8 +1,4 @@
 "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Hakan\Desktop\CGProject_\Projects\DelaunayTriangulation\OpenGLTests
-CMake Error at CMakeLists.txt:45 (target_link_libraries):
-  Cannot specify link libraries for target "OpenGLTest" which is not built by
-  this project.
-
-
--- Configuring incomplete, errors occurred!
-See also "C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug

@@ -40,6 +40,11 @@ add_executable(OpenGLTests
         Triples.cpp
         Triples.h
         Window.cpp
-        Window.h)
+        Window.h
+        DataStructures/point2d.h DataStructures/point2d.cpp
+        DataStructures/dagnode.cpp DataStructures/dagnode.h
+        DataStructures/triangle.cpp DataStructures/triangle.h
+        DataStructures/dag.h DataStructures/dag.cpp
+        DataStructures/adjacencies.h DataStructures/adjacencies.cpp)
 
-target_link_libraries(OpenGLTest -lOpenGL32 -lfreeGlut)
+target_link_libraries(OpenGLTests -lOpenGL32 -lfreeGlut)

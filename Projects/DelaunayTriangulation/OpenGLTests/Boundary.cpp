@@ -1,5 +1,7 @@
 #include "Boundary.h"
 #include <iostream>
+#include <cmath>
+#include <cfloat>
 
 Boundary::Boundary()
 {

@@ -168,6 +168,141 @@ Boundary.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/Boundary.cpp.s
 .PHONY : Boundary.cpp.s
 
+DataStructures/adjacencies.obj: DataStructures/adjacencies.cpp.obj
+
+.PHONY : DataStructures/adjacencies.obj
+
+# target to build an object file
+DataStructures/adjacencies.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.obj
+.PHONY : DataStructures/adjacencies.cpp.obj
+
+DataStructures/adjacencies.i: DataStructures/adjacencies.cpp.i
+
+.PHONY : DataStructures/adjacencies.i
+
+# target to preprocess a source file
+DataStructures/adjacencies.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.i
+.PHONY : DataStructures/adjacencies.cpp.i
+
+DataStructures/adjacencies.s: DataStructures/adjacencies.cpp.s
+
+.PHONY : DataStructures/adjacencies.s
+
+# target to generate assembly for a file
+DataStructures/adjacencies.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/adjacencies.cpp.s
+.PHONY : DataStructures/adjacencies.cpp.s
+
+DataStructures/dag.obj: DataStructures/dag.cpp.obj
+
+.PHONY : DataStructures/dag.obj
+
+# target to build an object file
+DataStructures/dag.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.obj
+.PHONY : DataStructures/dag.cpp.obj
+
+DataStructures/dag.i: DataStructures/dag.cpp.i
+
+.PHONY : DataStructures/dag.i
+
+# target to preprocess a source file
+DataStructures/dag.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.i
+.PHONY : DataStructures/dag.cpp.i
+
+DataStructures/dag.s: DataStructures/dag.cpp.s
+
+.PHONY : DataStructures/dag.s
+
+# target to generate assembly for a file
+DataStructures/dag.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/dag.cpp.s
+.PHONY : DataStructures/dag.cpp.s
+
+DataStructures/dagnode.obj: DataStructures/dagnode.cpp.obj
+
+.PHONY : DataStructures/dagnode.obj
+
+# target to build an object file
+DataStructures/dagnode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.obj
+.PHONY : DataStructures/dagnode.cpp.obj
+
+DataStructures/dagnode.i: DataStructures/dagnode.cpp.i
+
+.PHONY : DataStructures/dagnode.i
+
+# target to preprocess a source file
+DataStructures/dagnode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.i
+.PHONY : DataStructures/dagnode.cpp.i
+
+DataStructures/dagnode.s: DataStructures/dagnode.cpp.s
+
+.PHONY : DataStructures/dagnode.s
+
+# target to generate assembly for a file
+DataStructures/dagnode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/dagnode.cpp.s
+.PHONY : DataStructures/dagnode.cpp.s
+
+DataStructures/point2d.obj: DataStructures/point2d.cpp.obj
+
+.PHONY : DataStructures/point2d.obj
+
+# target to build an object file
+DataStructures/point2d.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.obj
+.PHONY : DataStructures/point2d.cpp.obj
+
+DataStructures/point2d.i: DataStructures/point2d.cpp.i
+
+.PHONY : DataStructures/point2d.i
+
+# target to preprocess a source file
+DataStructures/point2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.i
+.PHONY : DataStructures/point2d.cpp.i
+
+DataStructures/point2d.s: DataStructures/point2d.cpp.s
+
+.PHONY : DataStructures/point2d.s
+
+# target to generate assembly for a file
+DataStructures/point2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/point2d.cpp.s
+.PHONY : DataStructures/point2d.cpp.s
+
+DataStructures/triangle.obj: DataStructures/triangle.cpp.obj
+
+.PHONY : DataStructures/triangle.obj
+
+# target to build an object file
+DataStructures/triangle.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.obj
+.PHONY : DataStructures/triangle.cpp.obj
+
+DataStructures/triangle.i: DataStructures/triangle.cpp.i
+
+.PHONY : DataStructures/triangle.i
+
+# target to preprocess a source file
+DataStructures/triangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.i
+.PHONY : DataStructures/triangle.cpp.i
+
+DataStructures/triangle.s: DataStructures/triangle.cpp.s
+
+.PHONY : DataStructures/triangle.s
+
+# target to generate assembly for a file
+DataStructures/triangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OpenGLTests.dir\build.make CMakeFiles/OpenGLTests.dir/DataStructures/triangle.cpp.s
+.PHONY : DataStructures/triangle.cpp.s
+
 Graph.obj: Graph.cpp.obj
 
 .PHONY : Graph.obj
@@ -612,6 +747,21 @@ help:
 	@echo ... Boundary.obj
 	@echo ... Boundary.i
 	@echo ... Boundary.s
+	@echo ... DataStructures/adjacencies.obj
+	@echo ... DataStructures/adjacencies.i
+	@echo ... DataStructures/adjacencies.s
+	@echo ... DataStructures/dag.obj
+	@echo ... DataStructures/dag.i
+	@echo ... DataStructures/dag.s
+	@echo ... DataStructures/dagnode.obj
+	@echo ... DataStructures/dagnode.i
+	@echo ... DataStructures/dagnode.s
+	@echo ... DataStructures/point2d.obj
+	@echo ... DataStructures/point2d.i
+	@echo ... DataStructures/point2d.s
+	@echo ... DataStructures/triangle.obj
+	@echo ... DataStructures/triangle.i
+	@echo ... DataStructures/triangle.s
 	@echo ... Graph.obj
 	@echo ... Graph.i
 	@echo ... Graph.s
