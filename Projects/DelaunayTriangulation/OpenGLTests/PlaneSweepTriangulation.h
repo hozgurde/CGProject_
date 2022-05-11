@@ -23,6 +23,7 @@ private:
 	void RenderGraph();
 	void RenderBoundary();
 	void RenderTriples();
+	void RenderSweepLine();
 	void Initialize(int p);
 	void AddTo(int p, int q);
 	void Update(int q);
@@ -35,4 +36,6 @@ private:
 	float* circlePoints;
 	bool initialized;
 	int curPoint;
+	float lastY;
+	GLfloat* sweepLine;
 };

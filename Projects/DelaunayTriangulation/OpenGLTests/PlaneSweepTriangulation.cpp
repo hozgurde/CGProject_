@@ -18,6 +18,14 @@ PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 	graph = new Graph(points->GetPointsSize());
 	boundary = new Boundary(points, graph);
 	triples = new Triples(boundary);
+	sweepLine = new GLfloat[6];
+	sweepLine[0] = -3.0f;
+	sweepLine[1] = -1.0f;
+	sweepLine[2] = 0.0f;
+	sweepLine[3] = 3.0f;
+	sweepLine[4] = -1.0f;
+	sweepLine[5] = 0.0f;
+	lastY = -1.0f;
 }
 
 PlaneSweepTriangulation::~PlaneSweepTriangulation()
@@ -38,19 +46,23 @@ void PlaneSweepTriangulation::AdvanceTriangulation()
 		initialized = true;
 		AddTo(1, 0);
 		curPoint = 2;
+		lastY = points->GetPoint(0)[1];
 	}
 	else {
 		int q;
 		if (triples->MinTop() <= points->GetPoint(curPoint)[1]) {
+			lastY = triples->MinTop();
 			q = triples->GetPointCorrToMinTop();
 			Update(q);
 		}
 		else if(curPoint != points->GetPointsSize()) {
+			lastY = points->GetPoint(curPoint)[1];
 			q = boundary->ClosestPointTo(curPoint);
 			AddTo(curPoint, q);
 			curPoint++;
 		}
 		else if (triples->MinTop() != FLT_MAX) {
+			lastY = triples->MinTop();
 			q = triples->GetPointCorrToMinTop();
 			Update(q);
 		}
@@ -73,6 +85,8 @@ void PlaneSweepTriangulation::Render(GLuint uniformMyColor)
 	RenderBoundary();
 	glUniform1i(uniformMyColor, 2);
 	RenderTriples();
+	glUniform1i(uniformMyColor, 1);
+	RenderSweepLine();
 }
 
 void PlaneSweepTriangulation::UpdateBuffers()
@@ -81,6 +95,10 @@ void PlaneSweepTriangulation::UpdateBuffers()
 		delete[] circlePoints;
 		circlePoints = NULL;
 	}
+
+	std::cout << lastY << std::endl;
+	sweepLine[1] = lastY;
+	sweepLine[4] = lastY;
 	
 	if (triples->GetSizeOfTriples() > 0) {
 		circlePoints = new float[triples->GetSizeOfTriples() * 90 * 3];
@@ -107,15 +125,18 @@ void PlaneSweepTriangulation::UpdateBuffers()
 
 	//Put vertices into buffer
 	//glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, points->GetPoints());
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	if (circlePoints) {
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		
 		glBufferSubData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, sizeof(points->GetPoints()[0]) * 90 * triples->GetSizeOfTriples() * 3, circlePoints);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		
 	}
 
-	
+	glBufferSubData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3 + sizeof(points->GetPoints()[0]) * 90 * graph->GetMaxNoOfEdges() * 3, sizeof(points->GetPoints()[0]) * 6, sweepLine);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -123,6 +144,8 @@ void PlaneSweepTriangulation::UpdateBuffers()
 
 void PlaneSweepTriangulation::InitializeBuffers()
 {
+	
+
 	//Generate and bind Vertex Array
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
@@ -139,8 +162,9 @@ void PlaneSweepTriangulation::InitializeBuffers()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
 	//Put vertices into buffer
-	glBufferData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3 + sizeof(points->GetPoints()[0]) * 90 * graph->GetMaxNoOfEdges() * 3, NULL, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3 + sizeof(points->GetPoints()[0]) * 90 * graph->GetMaxNoOfEdges() * 3 + sizeof(points->GetPoints()[0]) * 6, NULL, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, points->GetPoints());
+	glBufferSubData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3 + sizeof(points->GetPoints()[0]) * 90 * graph->GetMaxNoOfEdges() * 3, sizeof(points->GetPoints()[0]) * 6, sweepLine);
 	//glBufferSubData(GL_ARRAY_BUFFER, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, sizeof(points->GetPoints()[0]) * 90 * triples->GetSizeOfTriples() * 3, circlePoints);
 	//
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -201,6 +225,17 @@ void PlaneSweepTriangulation::RenderTriples()
 	for (int i = 0; i < triples->GetSizeOfTriples(); i++) {
 		glDrawArrays(GL_LINE_LOOP, points->GetPointsSize() + i * 90, 90);
 	}
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void PlaneSweepTriangulation::RenderSweepLine()
+{
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+	glDrawArrays(GL_LINE_LOOP, points->GetPointsSize() + 90 * graph->GetMaxNoOfEdges(), 2);
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
