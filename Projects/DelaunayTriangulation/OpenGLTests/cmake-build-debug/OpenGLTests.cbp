@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="OpenGLTests"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OpenGLTests">
+				<Option output="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/OpenGLTests.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/."/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 OpenGLTests"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OpenGLTests/fast">
+				<Option output="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/OpenGLTests.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/."/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 OpenGLTests/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Boundary.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Boundary.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Graph.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Graph.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Mesh.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Mesh.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/PlaneSweepTriangulation.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/PlaneSweepTriangulation.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Points.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Points.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/RandomizedIncrementalTriangulation.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/RandomizedIncrementalTriangulation.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Shader.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Shader.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Triples.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Triples.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Window.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/Window.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imconfig.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_demo.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_draw.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_impl_glfw.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_impl_glfw.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_impl_opengl3.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_impl_opengl3.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_impl_opengl3_loader.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_internal.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_tables.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imgui_widgets.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imstb_rectpack.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imstb_textedit.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/imstb_truetype.h">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/main.cpp">
+			<Option target="OpenGLTests"/>
+		</Unit>
+		<Unit filename="C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

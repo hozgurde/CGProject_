@@ -1,0 +1,3 @@
+C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/CMakeFiles/OpenGLTests.dir
+C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Hakan/Desktop/CGProject_/Projects/DelaunayTriangulation/OpenGLTests/cmake-build-debug/CMakeFiles/rebuild_cache.dir
