@@ -7,11 +7,14 @@
 class RandomizedIncrementalTriangulation
 {
 public:
-    RandomizedIncrementalTriangulation(Points random_points);
+    RandomizedIncrementalTriangulation(Points* random_points);
+    ~RandomizedIncrementalTriangulation();
 
     void AdvanceTriangulation();
 	void CompleteTriangulation();
-	void Render();
+	void Render(GLuint uniformMyColor);
+    void UpdateBuffers();
+    void InitializeBuffers();
 
 	// All the random points initially given
     GLfloat *coordinates;
@@ -58,4 +61,11 @@ public:
     // Check Delaunay property
     bool isPointLyingInCircle(const Point2Dd &a, const Point2Dd &b, const Point2Dd &c, const Point2Dd &p,
                          bool includeEndpoints);
+private:
+    void RenderPrevPoints();
+    void RenderNextPoints();
+    void RenderTriangles();
+    GLuint VAO, VBO, IBO;
+    GLfloat* edges;
+    int edges_size;
 };

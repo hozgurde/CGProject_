@@ -22,6 +22,7 @@
 #include "Window.h"
 
 #include "PlaneSweepTriangulation.h"
+#include "RandomizedIncrementalTriangulation.h"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -111,6 +112,7 @@ int main() {
 	//points.Sort();
 	int curTriangulation = 0;
 	PlaneSweepTriangulation* planeSweepTriangulation = NULL;
+	RandomizedIncrementalTriangulation* randomizedIncrementalTriangulation = NULL;
 
 	// Loop until window closed
 	while (!mainWindow.GetShouldClose()) {
@@ -186,11 +188,18 @@ int main() {
 			}
 			if (ImGui::Button("Start Randomized Incremental Triangulation")) {
 				//Reset Previous Triangulation
-				
+				if (planeSweepTriangulation) {
+					delete planeSweepTriangulation;
+					planeSweepTriangulation = NULL;
+				}if (randomizedIncrementalTriangulation) {
+					delete randomizedIncrementalTriangulation;
+					randomizedIncrementalTriangulation = NULL;
+				}
 				//Generate New Points
-				
+				points.CreateRandomPoints(numberOfPoints);
 				//Initialize Start Triangulation
-				
+				randomizedIncrementalTriangulation = new RandomizedIncrementalTriangulation(&points);
+				randomizedIncrementalTriangulation->InitializeBuffers();
 				curTriangulation = RANDOMIZED_INCREMENTAL_TRIANGULATION;
 				
 			}
@@ -198,6 +207,10 @@ int main() {
 				//Reset Previous Triangulation
 				if (planeSweepTriangulation) {
 					delete planeSweepTriangulation;
+					planeSweepTriangulation = NULL;
+				}if (randomizedIncrementalTriangulation) {
+					delete randomizedIncrementalTriangulation;
+					randomizedIncrementalTriangulation = NULL;
 				}
 				
 				//Generate New Points
@@ -224,10 +237,15 @@ int main() {
 			if (curTriangulation == RANDOMIZED_INCREMENTAL_TRIANGULATION) {
 				if (ImGui::Button("Advance")) {
 					//Advance in Triangulation
-					
+					randomizedIncrementalTriangulation->AdvanceTriangulation();
+					//randomizedIncrementalTriangulation->PrintTriangulation();
+					randomizedIncrementalTriangulation->UpdateBuffers();
 				}
 				if (ImGui::Button("Finish")) {
 					//Finish Triangulation
+					randomizedIncrementalTriangulation->CompleteTriangulation();
+					//planeSweepTriangulation->PrintTriangulation();
+					randomizedIncrementalTriangulation->UpdateBuffers();
 				}
 			}
 			else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
@@ -252,6 +270,7 @@ int main() {
 		// Rendering
 		if (curTriangulation == RANDOMIZED_INCREMENTAL_TRIANGULATION) {
 			//Render Randomized Incremental Data Structure
+			randomizedIncrementalTriangulation->Render(uniformMyColor);
 		}
 		else if (curTriangulation == PLANE_SWEEP_TRIANGULATION) {
 			//Render Plane Sweep Data Structure
