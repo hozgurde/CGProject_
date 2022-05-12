@@ -1,9 +1,6 @@
 #include "PlaneSweepTriangulation.h"
-#include "imgui_impl_opengl3_loader.h"
 #include <cmath>
 #include <iostream>
-#include <GL/gl.h>
-#include <GL/glu.h>
 
 PlaneSweepTriangulation::PlaneSweepTriangulation(Points* points)
 {

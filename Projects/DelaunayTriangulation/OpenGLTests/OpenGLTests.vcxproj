@@ -20,6 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Boundary.cpp" />
+    <ClCompile Include="DataStructures\adjacencies.cpp" />
+    <ClCompile Include="DataStructures\dag.cpp" />
+    <ClCompile Include="DataStructures\dagnode.cpp" />
+    <ClCompile Include="DataStructures\point2d.cpp" />
+    <ClCompile Include="DataStructures\triangle.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
@@ -39,6 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boundary.h" />
+    <ClInclude Include="DataStructures\adjacencies.h" />
+    <ClInclude Include="DataStructures\dag.h" />
+    <ClInclude Include="DataStructures\dagnode.h" />
+    <ClInclude Include="DataStructures\point2d.h" />
+    <ClInclude Include="DataStructures\triangle.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
