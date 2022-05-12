@@ -9,9 +9,16 @@ RandomizedIncrementalTriangulation::RandomizedIncrementalTriangulation(Points* a
     this->curr_point_id = 0;
     this->num_points = all_points->GetPointsSize();
 
-    this->triangles.push_back(new Triangle(new Point2D<double>(0, 3.47), new Point2D<double>(4, -3.47), new Point2D<double>(-4, -3.47)));
+    Point2D<double>* p1 = new Point2D<double>(0, 3.47);
+    Point2D<double>* p2 = new Point2D<double>(4, -3.47);
+    Point2D<double>* p3 = new Point2D<double>(-4, -3.47);
+
+    this->triangles.push_back(new Triangle(p1, p2, p3));
     this->dagNodes.push_back(new DagNode(triangles.back()));
     triangles.back()->setDagNode(dagNodes.back());
+    /*this->points.push_back(p3);
+    this->points.push_back(p2);
+    this->points.push_back(p1);*/
 
     //triangles.push_back(t);
     edges = new GLfloat[num_points * 9 * 3 * 2];
