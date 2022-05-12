@@ -68,4 +68,5 @@ private:
     GLuint VAO, VBO, IBO;
     GLfloat* edges;
     int edges_size;
+    int triangles_size;
 };

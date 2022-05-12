@@ -8,6 +8,12 @@ RandomizedIncrementalTriangulation::RandomizedIncrementalTriangulation(Points* a
     this->coordinates = all_points->GetPoints();
     this->curr_point_id = 0;
     this->num_points = all_points->GetPointsSize();
+
+    this->triangles.push_back(new Triangle(new Point2D<double>(0, 3.47), new Point2D<double>(4, -3.47), new Point2D<double>(-4, -3.47)));
+    this->dagNodes.push_back(new DagNode(triangles.back()));
+    triangles.back()->setDagNode(dagNodes.back());
+
+    //triangles.push_back(t);
     edges = new GLfloat[num_points * 9 * 3 * 2];
     edges_size = 0;
     IBO = 0;
@@ -52,16 +58,20 @@ void RandomizedIncrementalTriangulation::Render(GLuint uniformMyColor)
 
 void RandomizedIncrementalTriangulation::UpdateBuffers()
 {
+    triangles_size = 0;
     for (int i = 0; i < triangles.size(); i++) {
-        edges[9 * i] = triangles[i]->getA()->x();
-        edges[9 * i + 1] = triangles[i]->getA()->y();
-        edges[9 * i + 2] = 0.0f;
-        edges[9 * i + 3] = triangles[i]->getB()->x();
-        edges[9 * i + 4] = triangles[i]->getB()->y();
-        edges[9 * i + 5] = 0.0f;
-        edges[9 * i + 6] = triangles[i]->getC()->x();
-        edges[9 * i + 7] = triangles[i]->getC()->y();
-        edges[9 * i + 8] = 0.0f;
+        if (!triangles[i]->getIsDeleted()) {
+            edges[9 * triangles_size] = triangles[i]->getA()->x();
+            edges[9 * triangles_size + 1] = triangles[i]->getA()->y();
+            edges[9 * triangles_size + 2] = 0.0f;
+            edges[9 * triangles_size + 3] = triangles[i]->getB()->x();
+            edges[9 * triangles_size + 4] = triangles[i]->getB()->y();
+            edges[9 * triangles_size + 5] = 0.0f;
+            edges[9 * triangles_size + 6] = triangles[i]->getC()->x();
+            edges[9 * triangles_size + 7] = triangles[i]->getC()->y();
+            edges[9 * triangles_size + 8] = 0.0f;
+            triangles_size++;
+        }
     }
 
     //Generate and bind Vertex Array
@@ -72,7 +82,7 @@ void RandomizedIncrementalTriangulation::UpdateBuffers()
     //glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(points->GetPoints()[0]) * points->GetPointsSize() * 3, points->GetPoints());
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    glBufferSubData(GL_ARRAY_BUFFER, sizeof(coordinates[0]) * num_points * 3, sizeof(coordinates[0]) * triangles.size() * 9, edges);
+    glBufferSubData(GL_ARRAY_BUFFER, sizeof(coordinates[0]) * num_points * 3, sizeof(coordinates[0]) * triangles_size * 9, edges);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -330,7 +340,7 @@ void RandomizedIncrementalTriangulation::RenderTriangles()
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    glDrawArrays(GL_TRIANGLES, num_points, triangles.size() * 3);
+    glDrawArrays(GL_TRIANGLES, num_points, triangles_size * 3);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);

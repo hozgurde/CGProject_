@@ -29,6 +29,9 @@
 #include "imgui_impl_opengl3.h"
 
 
+#include <chrono>
+
+
 using namespace std;
 
 //window dimensions
@@ -78,6 +81,7 @@ int main() {
 
 	CreateShader();
 	glEnable(GL_PROGRAM_POINT_SIZE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glfwSetInputMode(mainWindow.GetGLFWwindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 	glfwSetScrollCallback(mainWindow.GetGLFWwindow(), scroll_callback);
 
@@ -243,7 +247,11 @@ int main() {
 				}
 				if (ImGui::Button("Finish")) {
 					//Finish Triangulation
+					auto start = std::chrono::high_resolution_clock::now();
 					randomizedIncrementalTriangulation->CompleteTriangulation();
+					auto end = std::chrono::high_resolution_clock::now();
+					std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
+					std::cout << "finalizing took " << (time_span).count() << " seconds" << std::endl;
 					//planeSweepTriangulation->PrintTriangulation();
 					randomizedIncrementalTriangulation->UpdateBuffers();
 				}
@@ -258,7 +266,11 @@ int main() {
 				}
 				if (ImGui::Button("Finish")) {
 					//Finish Triangulation
+					auto start = std::chrono::high_resolution_clock::now();
 					planeSweepTriangulation->CompleteTriangulation();
+					auto end = std::chrono::high_resolution_clock::now();
+					std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
+					std::cout << "finalizing took " << (time_span).count() << " seconds" << std::endl;
 					//planeSweepTriangulation->PrintTriangulation();
 					planeSweepTriangulation->UpdateBuffers();
 				}
