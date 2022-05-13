@@ -5,24 +5,18 @@ using namespace std;
 // Constructor
 RandomizedIncrementalTriangulation::RandomizedIncrementalTriangulation(Points* all_points) {
 
+    all_points->generateRandomPointsForRandomized(all_points->GetPointsSize());
+
     this->coordinates = all_points->GetPoints();
     this->curr_point_id = 0;
     this->num_points = all_points->GetPointsSize();
 
-    Point2D<double>* p1 = new Point2D<double>(1e+10, 0);
-    Point2D<double>* p2 = new Point2D<double>(0, 1e+10);
-    Point2D<double>* p3 = new Point2D<double>(-1e+10, -1e+10);
+    Point2D<double>* p1 = new Point2D<double>(0, 3.47);
+    Point2D<double>* p2 = new Point2D<double>(4, -3.47);
+    Point2D<double>* p3 = new Point2D<double>(-4, -3.47);
 
-    setBoundingTrianglePoints(*p1, *p2, *p3);
+    setBoundingTrianglePoints(p1, p2, p3);
 
-    /*this->triangles.push_back(new Triangle(p1, p2, p3));
-    this->dagNodes.push_back(new DagNode(triangles.back()));
-    triangles.back()->setDagNode(dagNodes.back());*/
-    /*this->points.push_back(p3);
-    this->points.push_back(p2);
-    this->points.push_back(p1);*/
-
-    //triangles.push_back(t);
     edges = new GLfloat[num_points * 9 * 3 * 2];
     edges_size = 0;
     IBO = 0;
@@ -48,24 +42,34 @@ RandomizedIncrementalTriangulation::~RandomizedIncrementalTriangulation()
     }
 }
 
+void RandomizedIncrementalTriangulation::setBoundingTrianglePoints(const Point2Dd& p1, const Point2Dd& p2, const Point2Dd& p3) {
+    this->points.push_back(new Point2Dd(p1.x(), p1.y()));
+    this->points.push_back(new Point2Dd(p2.x(), p2.y()));
+    this->points.push_back(new Point2Dd(p3.x(), p3.y()));
+
+    this->triangles.push_back(new Triangle(this->points.at(0), this->points.at(1), this->points.at(2)));
+    this->dagNodes.push_back(new DagNode(triangles.back()));
+
+    triangles.back()->setDagNode(dagNodes.back());
+}
+
 void RandomizedIncrementalTriangulation::AdvanceTriangulation() {
-    if (curr_point_id < num_points) {
-        GLfloat x = this->coordinates[3 * curr_point_id];
-        GLfloat y = this->coordinates[3 * curr_point_id + 1];
-        Point2Dd p = Point2D<double>(x, y);
-        addPoint(p);
-        curr_point_id++;
-    }
-    
+    if (this->curr_point_id >= this->num_points) return;
+
+    double x = this->coordinates[3 * curr_point_id];
+    double y = this->coordinates[3 * curr_point_id + 1];
+    Point2Dd p = Point2D<double>(x, y);
+    addPoint(p);
+    this->curr_point_id++;
 }
 
 void RandomizedIncrementalTriangulation::CompleteTriangulation() {
 
-    for (int i = curr_point_id; i < num_points; ++i) {
-        GLfloat x = coordinates[3 * i];
-        GLfloat y = coordinates[3 * i + 1];
-        Point2Dd p = Point2D<double>(x, y);
-        addPoint(p);
+    for (int i = this->curr_point_id; i < this->num_points; ++i) {
+        double x = coordinates[3 * i];
+        double y = coordinates[3 * i + 1];
+        Point2Dd *p = new Point2D<double>(x, y);
+        addPoint(*p);
     }
 }
 

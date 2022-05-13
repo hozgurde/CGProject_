@@ -10,6 +10,7 @@ public:
 	~Points();
 
 	void ChangePoint(int index, float x, float y);
+	void generateRandomPointsForRandomized(int n);
 	void CreateRandomPoints(int noOfPoints);
 	void RenderPoints();
 	void ClearPoints();
