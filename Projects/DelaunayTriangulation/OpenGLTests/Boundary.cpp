@@ -77,9 +77,7 @@ int Boundary::GetCorrespondingPoint(int q)
 
 int Boundary::ClosestPointTo(int p)
 {
-	if (p == 2) {
-		std::cout << "asd" << std::endl;
-	}
+
 	float distance = FLT_MAX;
 	int curPoint = 0;
 	float* pointP = points->GetPoint(p);

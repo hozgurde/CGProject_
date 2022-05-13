@@ -10,6 +10,7 @@ public:
     RandomizedIncrementalTriangulation(Points* random_points);
     ~RandomizedIncrementalTriangulation();
 
+   
     void AdvanceTriangulation();
 	void CompleteTriangulation();
 	void Render(GLuint uniformMyColor);
@@ -33,6 +34,8 @@ public:
 
     // Nodes of my Dag
     std::vector<DagNode*> dagNodes; /**< vector of pointer of DagNode, that represents the Dag data structure */
+
+    void setBoundingTrianglePoints(const Point2Dd& p1, const Point2Dd& p2, const Point2Dd& p3);
 
     // Add a point inside my triangulation
     bool addPoint(const Point2Dd& p);

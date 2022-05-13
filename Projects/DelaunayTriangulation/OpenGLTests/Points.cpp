@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <iostream>
+#include <random>
 
 Points::Points()
 {
@@ -26,54 +27,65 @@ void Points::ChangePoint(int index, float x, float y)
 {
 	points[3 * index] = x;
 	points[3 * index + 1] = y;
-	
+
+}
+
+void Points::generateRandomPoints(int noOfPoints) {
+
+	if (pointsSize != 0) {
+		ClearPoints();
+	}
+
+	pointsSize = noOfPoints;
+
+	if (pointsSize <= 0) {
+		return;
+	}
+
+	double lower_bound = -1e+8;
+	double upper_bound = 1e+8;
+
+	std::mt19937 rng;
+	std::uniform_real_distribution<double> dist(lower_bound, upper_bound);
+	points = new GLfloat[pointsSize * 3];
+
+	for (int i = 0; i < noOfPoints; i++) {
+		if (i % 3 == 2) {
+			points[i] = 0.0;
+		}
+		else {
+			double p = dist(rng);
+			points[i] = p;
+		}
+
+	}
+
 }
 
 void Points::CreateRandomPoints(int noOfPoints)
 {
-	if (pointsSize != 0) {
-		ClearPoints();
-	}
-	time(NULL);
-	std::cout << time(NULL) << std::endl;
-	pointsSize = noOfPoints;
-	if (pointsSize > 0) {
-		points = new GLfloat[pointsSize * 3];
-		GLfloat p;
-		for (int i = 0; i < pointsSize * 3; i++) {
-			if (i % 3 == 2) {
-				points[i] = 0.0;
-			}
-			else {
-				p =  (rand()) / ((float)(RAND_MAX / 2)) - 1.0;
-				points[i] = p;
-			}
-		}
+	generateRandomPoints(noOfPoints);
 
-		/*
-		//Generate and bind Vertex Array
-		glGenVertexArrays(1, &VAO);
-		glBindVertexArray(VAO);
-
-
-		//Generate and bind Vetex Buffer
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
-		//Put vertices into buffer
-		glBufferData(GL_ARRAY_BUFFER, sizeof(points[0]) * pointsSize * 3, points, GL_STATIC_DRAW);
-
-		//
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-		glEnableVertexAttribArray(0);
-
-		//
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-		glBindVertexArray(0);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);*/
-		
-	}
+	//if (pointsSize != 0) {
+	//	ClearPoints();
+	//}
+	//time(NULL);
+	//std::cout << time(NULL) << std::endl;
+	//pointsSize = noOfPoints;
+	//if (pointsSize > 0) {
+	//	points = new GLfloat[pointsSize * 3];
+	//	GLfloat p;
+	//	for (int i = 0; i < pointsSize * 3; i++) {
+	//		if (i % 3 == 2) {
+	//			points[i] = 0.0;
+	//		}
+	//		else {
+	//			p = rand() / 10000;
+	//			points[i] = p;
+	//		}
+	//	}
+	//	
+	//}
 }
 
 void Points::RenderPoints()
@@ -116,7 +128,7 @@ void Points::QuickSort(int start, int end)
 	{
 		/* pi is partitioning index, arr[pi] is now
 		   at right place */
-		int pi = Partition( start, end);
+		int pi = Partition(start, end);
 
 		QuickSort(start, pi - 1);  // Before pi
 		QuickSort(pi + 1, end); // After pi
