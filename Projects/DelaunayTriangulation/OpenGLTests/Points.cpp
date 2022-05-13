@@ -77,7 +77,7 @@ void Points::CreateRandomPoints(int noOfPoints)
 				points[i] = 0.0;
 			}
 			else {
-				p = rand() / 10000;
+				p = rand();
 				points[i] = p;
 			}
 		}

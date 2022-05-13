@@ -45,8 +45,8 @@ void RandomizedIncrementalTriangulation::setBoundingTrianglePoints(const Point2D
 void RandomizedIncrementalTriangulation::AdvanceTriangulation() {
     if (this->curr_point_id >= this->num_points) return;
 
-    GLfloat x = this->coordinates[3 * curr_point_id];
-    GLfloat y = this->coordinates[3 * curr_point_id + 1];
+    GLdouble x = this->coordinates[3 * curr_point_id];
+    GLdouble y = this->coordinates[3 * curr_point_id + 1];
     Point2Dd p = Point2D<double>(x, y);
     addPoint(p);
     this->curr_point_id++;
@@ -55,8 +55,8 @@ void RandomizedIncrementalTriangulation::AdvanceTriangulation() {
 void RandomizedIncrementalTriangulation::CompleteTriangulation() {
 
     for (int i = this->curr_point_id; i < this->num_points; ++i) {
-        GLfloat x = coordinates[3 * i];
-        GLfloat y = coordinates[3 * i + 1];
+        GLdouble x = coordinates[3 * i];
+        GLdouble y = coordinates[3 * i + 1];
         Point2Dd *p = new Point2D<double>(x, y);
         addPoint(*p);
     }
