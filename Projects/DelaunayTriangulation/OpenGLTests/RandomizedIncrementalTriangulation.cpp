@@ -5,6 +5,8 @@ using namespace std;
 // Constructor
 RandomizedIncrementalTriangulation::RandomizedIncrementalTriangulation(Points* all_points) {
 
+    all_points->generateRandomPointsForRandomized(all_points->GetPointsSize());
+
     this->coordinates = all_points->GetPoints();
     this->curr_point_id = 0;
     this->num_points = all_points->GetPointsSize();

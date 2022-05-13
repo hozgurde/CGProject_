@@ -30,7 +30,7 @@ void Points::ChangePoint(int index, float x, float y)
 
 }
 
-void Points::generateRandomPoints(int noOfPoints) {
+void Points::generateRandomPointsForRandomized(int noOfPoints) {
 
 	if (pointsSize != 0) {
 		ClearPoints();
@@ -42,8 +42,8 @@ void Points::generateRandomPoints(int noOfPoints) {
 		return;
 	}
 
-	double lower_bound = -1e+8;
-	double upper_bound = 1e+8;
+	double upper_bound = 10 * noOfPoints;
+	double lower_bound = -upper_bound;
 
 	std::mt19937 rng;
 	std::uniform_real_distribution<double> dist(lower_bound, upper_bound);
@@ -59,33 +59,30 @@ void Points::generateRandomPoints(int noOfPoints) {
 		}
 
 	}
-
 }
 
 void Points::CreateRandomPoints(int noOfPoints)
 {
-	generateRandomPoints(noOfPoints);
-
-	//if (pointsSize != 0) {
-	//	ClearPoints();
-	//}
-	//time(NULL);
-	//std::cout << time(NULL) << std::endl;
-	//pointsSize = noOfPoints;
-	//if (pointsSize > 0) {
-	//	points = new GLfloat[pointsSize * 3];
-	//	GLfloat p;
-	//	for (int i = 0; i < pointsSize * 3; i++) {
-	//		if (i % 3 == 2) {
-	//			points[i] = 0.0;
-	//		}
-	//		else {
-	//			p = rand() / 10000;
-	//			points[i] = p;
-	//		}
-	//	}
-	//	
-	//}
+	if (pointsSize != 0) {
+		ClearPoints();
+	}
+	time(NULL);
+	std::cout << time(NULL) << std::endl;
+	pointsSize = noOfPoints;
+	if (pointsSize > 0) {
+		points = new GLfloat[pointsSize * 3];
+		GLfloat p;
+		for (int i = 0; i < pointsSize * 3; i++) {
+			if (i % 3 == 2) {
+				points[i] = 0.0;
+			}
+			else {
+				p = rand() / 10000;
+				points[i] = p;
+			}
+		}
+		
+	}
 }
 
 void Points::RenderPoints()
