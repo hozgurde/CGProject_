@@ -22,54 +22,6 @@ Boundary::Boundary(Points* points, Graph* graph)
 	this->graph = graph;
 }
 
-int Boundary::Before(int q)
-{
-	int start = 0;
-	int end = boundarySize - 1;
-	while (start != end) {
-		int mid = (start + end) / 2;
-		if (boundary[mid] == q) {
-			if (mid != 0) {
-				return boundary[mid - 1];
-			}
-			else {
-				return -1;
-			}
-		}
-		else if (points->GetPoint(boundary[mid])[0] < points->GetPoint(q)[0]) {
-			start = mid;
-		}
-		else {
-			end = mid;
-		}
-	}
-	return boundary[((start + end) / 2) - 1];
-}
-
-int Boundary::After(int q)
-{
-	int start = 0;
-	int end = boundarySize - 1;
-	while (start != end) {
-		int mid = (start + end) / 2;
-		if (boundary[mid] == q) {
-			if (mid != boundarySize - 1) {
-				return boundary[mid + 1];
-			}
-			else {
-				return -1;
-			}
-		}
-		else if (points->GetPoint(boundary[mid])[0] < points->GetPoint(q)[0]) {
-			start = mid;
-		}
-		else {
-			end = mid;
-		}
-	}
-	return boundary[((start + end) / 2) + 1];
-}
-
 int Boundary::GetCorrespondingPoint(int q)
 {
 	return boundary[q];

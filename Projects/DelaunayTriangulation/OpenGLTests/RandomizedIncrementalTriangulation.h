@@ -62,6 +62,7 @@ public:
     bool isPointLyingInCircle(const Point2Dd &a, const Point2Dd &b, const Point2Dd &c, const Point2Dd &p,
                          bool includeEndpoints);
 private:
+    void setBoundingTrianglePoints(const Point2Dd& p1, const Point2Dd& p2, const Point2Dd& p3);
     void RenderPrevPoints();
     void RenderNextPoints();
     void RenderTriangles();

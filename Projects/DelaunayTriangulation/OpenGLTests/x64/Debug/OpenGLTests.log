@@ -1,0 +1,73 @@
+﻿  Boundary.cpp
+  adjacencies.cpp
+  dag.cpp
+  dagnode.cpp
+  point2d.cpp
+  triangle.cpp
+  Graph.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\main.cpp(154,36): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\main.cpp(155,36): warning C4244: '-=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\main.cpp(164,21): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Mesh.cpp
+  PlaneSweepTriangulation.cpp
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\PlaneSweepTriangulation.cpp(299,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Points.cpp
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\Points.cpp(37,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\Points.cpp(48,45): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+  RandomizedIncrementalTriangulation.cpp
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\RandomizedIncrementalTriangulation.cpp(86,67): warning C4244: '=': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=double
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\RandomizedIncrementalTriangulation.cpp(87,71): warning C4244: '=': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=double
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\RandomizedIncrementalTriangulation.cpp(89,71): warning C4244: '=': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=double
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\RandomizedIncrementalTriangulation.cpp(90,71): warning C4244: '=': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=double
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\RandomizedIncrementalTriangulation.cpp(92,71): warning C4244: '=': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=double
+          ]
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\RandomizedIncrementalTriangulation.cpp(93,71): warning C4244: '=': conversion from 'T' to 'GLfloat', possible loss of data
+          with
+          [
+              T=double
+          ]
+  Shader.cpp
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\Shader.cpp(87,36): warning C4267: '=': conversion from 'size_t' to 'GLint', possible loss of data
+  Generating Code...
+  Compiling...
+  Triples.cpp
+  Window.cpp
+  Generating Code...
+C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\OpenGLTests\Window.cpp(59): warning C4715: 'Window::Initialise': not all control paths return a value
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  OpenGLTests.vcxproj -> C:\Users\hozgu\OneDrive\Masaüstü\2021-2022 Spring\CS 478\New folder\Projects\DelaunayTriangulation\x64\Debug\OpenGLTests.exe

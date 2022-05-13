@@ -7,8 +7,6 @@ public:
 	Boundary();
 	~Boundary();
 	Boundary(Points* points, Graph* graph);
-	int Before(int q);
-	int After(int q);
 	int GetCorrespondingPoint(int q);
 	int ClosestPointTo(int p);
 	void InsertNewOnBoundary(int p, int q);

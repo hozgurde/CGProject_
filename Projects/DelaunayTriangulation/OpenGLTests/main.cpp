@@ -90,7 +90,7 @@ int main() {
 	//glm::mat4 projection = 
 	glm::mat4 projection = glm::perspective(90.0f, (GLfloat)mainWindow.GetBufferWidth() / (GLfloat)mainWindow.GetBufferHeight(), 0.1f, 1000.0f);
 
-	int numberOfPoints = 5;
+	int numberOfPoints = 10;
 	Points points(numberOfPoints);
 
 	//Create ImGUI components
@@ -201,6 +201,16 @@ int main() {
 				}
 				//Generate New Points
 				points.CreateRandomPoints(numberOfPoints);
+				/*points.ChangePoint(0, -736924.4245, -82699.73595);
+				points.ChangePoint(1, - 562081.6276, 357729.4335);
+				points.ChangePoint(2, 869385.7925, 38832.74405);
+				points.ChangePoint(3, - 930855.7791, 59400.38628);
+				points.ChangePoint(4, - 984603.6279, - 866315.5255);
+				points.ChangePoint(5, 373545.4248, 860872.9899);
+				points.ChangePoint(6, 53857.55552, 307837.9244);
+				points.ChangePoint(7, 402381.189, 524396.08);
+				points.ChangePoint(8, -905070.9732, -343531.5477);
+				points.ChangePoint(9, 512820.9723, -269322.6582);*/
 				//Initialize Start Triangulation
 				randomizedIncrementalTriangulation = new RandomizedIncrementalTriangulation(&points);
 				randomizedIncrementalTriangulation->InitializeBuffers();
