@@ -77,7 +77,7 @@ void Points::CreateRandomPoints(int noOfPoints)
 				points[i] = 0.0;
 			}
 			else {
-				p = rand();
+				p = (rand()) / ((float)(RAND_MAX / 2)) - 1.0;
 				points[i] = p;
 			}
 		}
